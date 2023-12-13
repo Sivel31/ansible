@@ -1,0 +1,9 @@
+---
+test_group:
+  hosts:
+    test_machine_1:
+      ansible_host: 10.15.203.1
+    test_machine_2:
+      ansible_host: 10.15.203.2
+    test_machine_3:
+      ansible_host: 10.15.203.3
