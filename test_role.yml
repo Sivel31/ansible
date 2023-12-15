@@ -1,0 +1,5 @@
+---
+ - name: Test_role
+   hosts: all
+   roles:
+    - test_role
