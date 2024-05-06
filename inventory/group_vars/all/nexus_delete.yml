@@ -1,6 +1,7 @@
 ---
 clean_nexus_user: 'schukinvv'
 clean_nexus_password: 'Vla09dik!@#&'
+
 kri_go_packages_version:
   isp-gate-service:
     version: 4.1.1-0
