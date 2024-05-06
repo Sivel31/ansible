@@ -1,0 +1,5 @@
+---
+ - name: Nexus_delete
+   hosts: all
+   roles:
+    - nexus_delete
