@@ -1,11 +1,8 @@
 #!/bin/bash
 user="{{ clean_nexus_user }}"
 password="{{ clean_nexus_password }}"
-kri_modules=(
-{% for package, data in kri_go_packages_version.items() %}
-    "{{ package }}|{{ data.version }}"
-{% endfor %}
-)
+kri_modules=()
+mapfile kri_modules < /tmp/inventory
 COUNT=3
 for module in "${kri_modules[@]}"; do
     IFS='|' read -ra module_parts <<< "$module"
