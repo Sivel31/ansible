@@ -1,1 +1,38 @@
 ---
+clean_nexus_user: 'schukinvv'
+clean_nexus_password: 'Vla09dik!@#&'
+kri_go_packages_version:
+  isp-gate-service:
+    version: 4.1.1-0
+  isp-routing-service:
+    version: 4.0.0-0
+  isp-script-service:
+    version: 3.0.1-0
+  isp-system-service:
+    version: 4.0.0-0
+  msp-mdm-converter-service:
+    version: 3.12.2-0
+  msp-mdm-api-service:
+    version: 3.5.1-0
+  msp-mdm-service:
+    version: 3.0.2-0
+  msp-mdm-notify-service:
+    version: 5.1.2-0
+  msp-mdm-async-api-service:
+    version: 2.1.5-0
+  msp-mdm-search-service:
+    version: 3.1.7-0
+  msp-mdm-verify-service:
+    version: 1.7.1-0
+  msp-mdm-sudir-service:
+    version: 1.4.1-0
+  msp-mdm-subscription-service:
+    version: 1.1.1-0
+  msp-mdm-public-api-service:
+    version: 1.5.0-0
+  mdm-ag-debates-service:
+    version: 4.2.1-0
+  mdm-nlk-notification-service:
+    version: 2.0.1-0
+  mdm-emias-notification-service:
+    version: 1.0.9-0

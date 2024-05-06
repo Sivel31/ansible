@@ -1,0 +1,36 @@
+#!/bin/bash
+user="{{ clean_nexus_user }}"
+password="{{ clean_nexus_password }}"
+kri_modules=(
+    "isp-gate-service|4.0.0-0"
+    "isp-routing-service|4.0.0-0"
+    "isp-script-service|3.0.1-0"
+    "isp-system-service|4.0.0-0"
+    "msp-mdm-converter-service|3.12.2-0"
+    "msp-mdm-api-service|3.5.1-0"
+    "msp-mdm-service|3.0.2-0"
+    "msp-mdm-notify-service|5.1.2-0"
+    "msp-mdm-async-api-service|2.1.5-0"
+    "msp-mdm-search-service|3.1.7-0"
+    "msp-mdm-verify-service|1.7.1-0"
+    "msp-mdm-sudir-service|1.4.1-0"
+    "msp-mdm-subscription-service|1.1.1-0"
+    "msp-mdm-public-api-service|1.5.0-0"
+    "mdm-ag-debates-service|4.2.1-0"
+    "mdm-nlk-notification-service|2.0.1-0"
+    "mdm-emias-notification-service|1.0.8-0"
+)
+COUNT=3
+for module in "${kri_modules[@]}"; do
+    IFS='|' read -ra module_parts <<< "$module"
+    echo "Проверяю модуль ${module_parts[0]}, версия ${module_parts[1]}
+"
+#    echo "name = ${module_parts[0]}, version = ${module_parts[1]}"
+    last_modified="$(curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}&version=${module_par
+ts[1]}" | jq '.items | .[] | .lastModified')"
+    echo "$last_modified
+"
+    sudo curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}"  | jq --argjson last_modified $
+last_modified --argjson count $COUNT '.items |  map(select(.lastModified < $last_modified).path)[:-$count][]' #| xargs -I {} curl -X DELETE -u $user:$password "http://10.15.61.
+1:8081/service/rest/v1/assets/{}"
+done
