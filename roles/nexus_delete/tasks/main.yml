@@ -12,3 +12,10 @@
       owner: "admin"
       group: "admin"
       mode: "755"
+ - name: create inventory nexus
+   template:
+      src: inventory.j2
+      dest: /tmp/inventory
+      owner: "admin"
+      group: "admin"
+      mode: "755"
