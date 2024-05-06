@@ -38,20 +38,20 @@ kri_go_packages_version:
     version: 1.0.9-0
 
 kri_go_packages_list:
-- isp-gate-service
-- isp-routing-service
-- isp-script-service
-- isp-system-service
-- msp-mdm-api-service
-- msp-mdm-async-api-service
-- msp-mdm-converter-service
-- msp-mdm-notify-service
-- msp-mdm-public-api-service
-- msp-mdm-search-service
-- msp-mdm-service
-- msp-mdm-sudir-service
-- msp-mdm-verify-service
-- mdm-ag-debates-service
-- mdm-nlk-notification-service
-- msp-mdm-subscription-service
-- mdm-emias-notification-service
+  - isp-gate-service
+  - isp-routing-service
+  - isp-script-service
+  - isp-system-service
+  - msp-mdm-api-service
+  - msp-mdm-async-api-service
+  - msp-mdm-converter-service
+  - msp-mdm-notify-service
+  - msp-mdm-public-api-service
+  - msp-mdm-search-service
+  - msp-mdm-service
+  - msp-mdm-sudir-service
+  - msp-mdm-verify-service
+  - mdm-ag-debates-service
+  - mdm-nlk-notification-service
+  - msp-mdm-subscription-service
+  - mdm-emias-notification-service
