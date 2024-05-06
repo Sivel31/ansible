@@ -1,5 +1,6 @@
 ---
 # tasks file for nexus_delete
  - name: debug name variables
-   shell: 'echo "Переменная имеет значение {{ item }}"'
+   ansible.builtin.debug:
+      msg: Variable {{ item }} is defined
    with_items: "{{ kri_go_packages_version }}"
