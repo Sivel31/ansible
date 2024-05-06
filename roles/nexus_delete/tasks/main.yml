@@ -4,3 +4,8 @@
    ansible.builtin.debug:
       msg: Variable {{ kri_go_packages_version[item].version }} is defined
    with_items: "{{ kri_go_packages_list }}"
+
+ - name: create script nexus
+   template:
+      src: clean_nexus.sh.j2
+      dest: /tmp/clean_nexus.sh
