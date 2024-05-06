@@ -3,4 +3,4 @@
  - name: debug name variables
    ansible.builtin.debug:
       msg: Variable {{ item }} is defined
-   with_items: {{ kri_go_packages_list }}
+   with_items: "{{ kri_go_packages_list }}"
