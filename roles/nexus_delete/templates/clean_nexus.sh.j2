@@ -13,5 +13,5 @@ for module in "${kri_modules[@]}"; do
 #    echo "name = ${module_parts[0]}, version = ${module_parts[1]}"
     last_modified="$(curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}&version=${module_parts[1]}" | jq '.items | .[] | .lastModified')"
     echo "$last_modified"
-    sudo curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}"  | jq --argjson last_modified $last_modified --argjson count $COUNT '.items |  map(select(.lastModified < $last_modified).path)[:-$count][]' #| xargs -I {} curl -X DELETE -u $user:$password "http://10.15.61.1:8081/service/rest/v1/assets/{}"
+    sudo curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}"  | jq --argjson last_modified $last_modified --argjson count $COUNT '.items |  map(select(.lastModified < $last_modified).path)[:-$count][]' | xargs -I {} curl -X DELETE -u $user:$password "http://10.15.61.1:8081/service/rest/v1/assets/{}"
 done
