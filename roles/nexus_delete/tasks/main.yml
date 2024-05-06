@@ -1,6 +1,6 @@
 ---
 # tasks file for nexus_delete
-- name: debug name variables
-  echo:
-    msg: "Переменная имеет значение {{ item }}"
-  with_items: "{{ kri_go_packages_version }}"
+ - name: debug name variables
+   echo:
+     msg: "Переменная имеет значение {{ item }}"
+   with_items: "{{ kri_go_packages_version }}"
