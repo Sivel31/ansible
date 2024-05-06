@@ -1,8 +1,8 @@
 #!/bin/bash
 user="{{ clean_nexus_user }}"
-password="{{ clean_nexus_password }}"
+password="{{ clean_nexus_password}}"
 kri_modules=()
-mapfile kri_modules < /tmp/inventory
+mapfile kri_modules < {{ clean_nexus_path_to_inventory }}
 COUNT=3
 for module in "${kri_modules[@]}"; do
     IFS='|' read -ra module_parts <<< "$module"
@@ -10,5 +10,5 @@ for module in "${kri_modules[@]}"; do
 #    echo "name = ${module_parts[0]}, version = ${module_parts[1]}"
     last_modified="$(curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}&version=${module_parts[1]}" | jq '.items | .[] | .lastModified')"
     echo "$last_modified"
-    sudo curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}"  | jq --argjson last_modified $last_modified --argjson count $COUNT '.items |  map(select(.lastModified < $last_modified).path)[:-$count][]' | xargs -I {} curl -X DELETE -u $user:$password "http://10.15.61.1:8081/service/rest/v1/assets/{}"
+    sudo curl -X GET -u $user:$password "http://10.15.61.1:8081/service/rest/v1/search/assets?repository=mdm_yum_hosted&name=${module_parts[0]}"  | jq --argjson last_modified $last_modified --argjson count $COUNT '.items |  map(select(.lastModified < $last_modified).path)[:-$count][]' #| xargs -I {} curl -X DELETE -u $user:$password "http://10.15.61.1:8081/service/rest/v1/assets/{}"
 done
