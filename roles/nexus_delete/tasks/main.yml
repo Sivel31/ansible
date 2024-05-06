@@ -2,5 +2,5 @@
 # tasks file for nexus_delete
  - name: debug name variables
    ansible.builtin.debug:
-      msg: Variable {{ kri_go_packages_version.item.version }} is defined
+      msg: Variable {{ kri_go_packages_version[item].version }} is defined
    with_items: "{{ kri_go_packages_list }}"
