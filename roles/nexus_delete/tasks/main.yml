@@ -22,4 +22,4 @@
       mode: "744"
 
  - name: upload to Nexus
-   shell: "sudo curl -k -v --user '{{ clean_nexus_user }}:{{ password }}' --upload-file {{ clean_nexus_path_to_inventory }} https://data.passport.local:8081/repository/mdm_raw/tech_logs/$fname"
+   shell: "sudo curl -k -v --user '{{ clean_nexus_user }}:{{ clean_nexus_password }}' --upload-file {{ clean_nexus_path_to_inventory }} https://data.passport.local:8081/repository/mdm_raw/tech_logs/$fname"
