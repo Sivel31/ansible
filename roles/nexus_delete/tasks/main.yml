@@ -9,3 +9,6 @@
    template:
       src: clean_nexus.sh.j2
       dest: /tmp/clean_nexus.sh
+      owner: "admin"
+      group: "admin"
+      mode: "755"
