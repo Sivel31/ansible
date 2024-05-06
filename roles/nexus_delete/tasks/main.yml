@@ -16,7 +16,7 @@
  - name: create inventory nexus
    template:
       src: inventory.j2
-      dest: {{ clean_nexus_path_to_inventory }}
+      dest: "{{ clean_nexus_path_to_inventory }}"
       owner: "admin"
       group: "admin"
       mode: "744"
