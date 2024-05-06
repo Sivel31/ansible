@@ -18,4 +18,4 @@
       dest: /tmp/inventory
       owner: "admin"
       group: "admin"
-      mode: "755"
+      mode: "744"
