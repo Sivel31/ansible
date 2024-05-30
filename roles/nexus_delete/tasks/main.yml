@@ -2,5 +2,24 @@
 # tasks file for nexus_delete
  - name: debug name variables
    ansible.builtin.debug:
-      msg: Variable {{ kri_go_packages_version.item.version }} is defined
+      msg: Variable {{ kri_go_packages_version[item].version }} is defined
    with_items: "{{ kri_go_packages_list }}"
+
+ - name: create script nexus
+   template:
+      src: clean_nexus.sh.j2
+      dest: /tmp/clean_nexus.sh
+      owner: "admin"
+      group: "admin"
+      mode: "755"
+
+ - name: create inventory nexus
+   template:
+      src: inventory.j2
+      dest: "{{ clean_nexus_path_to_inventory }}"
+      owner: "admin"
+      group: "admin"
+      mode: "744"
+
+ - name: upload to Nexus
+   shell: "sudo curl -k -v --user '{{ clean_nexus_user }}:{{ clean_nexus_password }}' --upload-file {{ clean_nexus_path_to_inventory }} https://data.passport.local:8081/repository/mdm_raw/tech_logs/$fname"
