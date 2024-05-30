@@ -1,0 +1,13 @@
+---
+# tasks file for domain_join
+
+- name: "add strings"
+  blockinfile:
+    path: /home/admin/file.txt
+    block: |
+      Это первая строка блока.
+      Это вторая строка блока.
+      Это третья строка блока.
+    state: present
+    create: yes
+    insertafter: EOF

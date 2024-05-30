@@ -1,0 +1,5 @@
+---
+ - name: Domain_join
+   hosts: all
+   roles:
+    - domain_join
