@@ -11,3 +11,4 @@
     state: present
     create: yes
     insertafter: EOF
+    marker: ''
