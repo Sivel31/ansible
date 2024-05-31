@@ -5,8 +5,8 @@
   lineinfile:
     path: /home/admin/file.txt
     regexp: '{{ item }}'
-    state: absent
-    create: yes
+    state: present
+    create: true
   loop:
     - 'server 10.15.85.7 iburst'
     - 'server 10.15.85.6 iburst'
