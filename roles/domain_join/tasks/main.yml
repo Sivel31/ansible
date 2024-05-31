@@ -6,6 +6,7 @@
     path: /home/admin/file.txt
     regexp: '^\s*server 10\.15\.85\.[567] iburst'
     state: present
+    create: yes
   register: block_check
   become: yes
 
