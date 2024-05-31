@@ -58,4 +58,5 @@
     create: yes
     insertafter: EOF
     marker: ''
-  when: line_check.change
+  when: line_check.changed
+  become: yes
