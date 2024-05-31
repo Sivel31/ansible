@@ -46,3 +46,9 @@
     create: yes
     insertafter: EOF
     marker: ''
+    when: 
+      - item not in lookup('file', '/home/admin/file.txt', wantlist=True)
+    loop:
+      - 'server 10.15.85.7 iburst'
+      - 'server 10.15.85.6 iburst'
+      - 'server 10.15.85.5 iburst'
