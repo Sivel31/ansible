@@ -26,7 +26,7 @@
         
         # Increase the minimum number of selectable sources required to adjust
         # the system clock.
-	#minsources 2
+        #minsources 2
         
         # Allow NTP client access from local network.
         #allow 192.168.0.0/16
