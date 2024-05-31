@@ -1,17 +1,12 @@
 ---
 # tasks file for domain_join
 
-- name: Check if specific lines exist in file
+- name: Check if block exists in file
   lineinfile:
     path: /home/admin/file.txt
-    line: '{{ item }}'
+    regexp: '^\s*server 10\.15\.85\.[567] iburst'
     state: present
-    create: true
-  loop:
-    - 'server 10.15.85.7 iburst'
-    - 'server 10.15.85.6 iburst'
-    - 'server 10.15.85.5 iburst'
-  register: line_check
+  register: block_check
   become: yes
 
 - name: "add strings"
