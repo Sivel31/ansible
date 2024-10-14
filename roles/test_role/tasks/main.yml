@@ -52,4 +52,4 @@
 - name: Reboot the machine
   reboot:
     msg: "Rebooting for maintenance"
-    wait: yes
+    reboot_timeout: 300
