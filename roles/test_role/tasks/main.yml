@@ -24,7 +24,7 @@
 - name: Find route
   find:
     paths: '/etc/sysconfig/network-scripts'
-    patterns: "ifcfg-ethhhhh*"
+    patterns: "ifcfg-eth*"
   register: manage_network_interface_found_files
 
 - name: Вывод файлов, если файлы найдены
@@ -39,3 +39,11 @@
 - name: Вывод файлов
   debug:
     msg: "{{ manage_network_interface_found_files.files[0].path }}"
+
+- name: Execute multiple bash commands
+  shell: |
+    mkdir /opt/test1
+    mkdir /opt/test2
+    mkdir /opt/test3
+    mkdir /opt/test4
+    mkdir /opt/test5
