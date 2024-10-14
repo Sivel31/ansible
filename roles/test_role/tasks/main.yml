@@ -1,7 +1,19 @@
 ---
 # tasks file for test_role
 - name: test task
-  debug: msg="{{ ansible_facts["{{ interface }}"].macaddress }}"
+  debug: msg="{{ ansible_facts['interface'].macaddress }}"
 
 - name: test task
   debug: "{{ ansible_facts[interface].macaddress }}"
+
+- name: Отладка используемого интерфейса
+  debug:
+    msg: "Используемый интерфейс: {{ interface }}"
+
+- name: Показать доступные интерфейсы
+  debug:
+    var: ansible_facts['interfaces']
+
+- name: Получить MAC-адрес интерфейса
+  debug:
+    msg: "MAC-адрес интерфейса {{ interface }}: {{ ansible_facts[interface]['macaddress'] }}"
