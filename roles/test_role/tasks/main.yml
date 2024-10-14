@@ -20,3 +20,13 @@
 - name: Вывод IP
   debug:
     msg: "{{ ansible_host }}"
+
+- name: Find route
+  find:
+    paths: '/etc/sysconfig/network-scripts'
+    patterns: "ifcfg-eth*"
+  register: manage_network_interface_found_files
+
+- name: Вывод IP
+  debug:
+    msg: "{{ manage_network_interface_found_files }}"
