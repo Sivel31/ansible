@@ -1,5 +1,7 @@
 ---
- - name: Test_role
-   hosts: all
-   roles:
-    - test_role
+- name: Test_role
+  hosts: all
+  vars:
+    interface: "eth0"  # Укажите нужный интерфейс
+  roles:
+  - test_role
