@@ -4,4 +4,4 @@
   debug: msg="{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
 
 - name: test task
-  debug: "{{ ansible_facts.{{ interface }}.macaddress }}"
+  debug: "{{ ansible_facts[interface].macaddress }}"
