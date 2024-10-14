@@ -24,7 +24,7 @@
 - name: Find route
   find:
     paths: '/etc/sysconfig/network-scripts'
-    patterns: "ifcfg-eth*"
+    patterns: "ifcfg-ethhhhh*"
   register: manage_network_interface_found_files
 
 - name: Вывод файлов, если файлы найдены
