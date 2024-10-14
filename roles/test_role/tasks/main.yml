@@ -31,7 +31,7 @@
 
 - name: Вывод файлов
   debug:
-    var: "{{ manage_network_interface_found_files.files }}"
+    msg: "{{ manage_network_interface_found_files.files }}"
 
 - name: Вывод файлов
   debug:
