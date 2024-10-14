@@ -6,3 +6,6 @@
 - name: Вывести все факты
   debug:
     var: ansible_facts
+
+- name: test task
+  debug: msg="{{ ansible_facts.eth0.macaddress }}"
