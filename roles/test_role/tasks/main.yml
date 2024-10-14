@@ -3,9 +3,5 @@
 - name: test task
   debug: msg="{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
 
-- name: register
-  set_fact:
-    mac_address: "{{ ansible_facts.eth0.macaddress }}"
-
 - name: test task
-  debug: "{{ mac_address }}"
+  debug: "{{ ansible_facts.{{ interface }}.macaddress }}"
