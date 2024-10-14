@@ -1,5 +1,5 @@
 ---
-interface: 'eth0'
+
 clean_nexus_user: 'schukinvv'
 clean_nexus_password: 'Vla09dik!@#'
 clean_nexus_path_to_inventory: '/tmp/inventory'
