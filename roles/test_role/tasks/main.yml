@@ -16,3 +16,7 @@
 - name: Вывод хостнейма
   debug:
     msg: "{{ ansible_hostname }}"
+
+- name: Вывод IP
+  debug:
+    msg: "{{ ansible_host }}"
