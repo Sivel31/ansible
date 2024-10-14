@@ -48,3 +48,8 @@
     mkdir /opt/{{ test_mlt_command1 }} &&
     mkdir /opt/test{{ test_mlt_command2 }} &&
     mkdir /opt/test5
+
+- name: Reboot the machine
+  reboot:
+    msg: "Rebooting for maintenance"
+    wait: yes
