@@ -25,10 +25,14 @@
   find:
     paths: '/etc/sysconfig/network-scripts'
     recurse: no
-    patterns: "ifcfg-*"
+    patterns: "ifcfg-eth*"
     file_type: file
   register: manage_network_interface_found_files
 
 - name: Вывод файлов
   debug:
-    msg: "{{ manage_network_interface_found_files }}"
+    var: "{{ manage_network_interface_found_files.files }}"
+
+- name: Вывод файлов
+  debug:
+    msg: "{{ manage_network_interface_found_files.file[0].path }}"
