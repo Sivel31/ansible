@@ -42,8 +42,8 @@
 
 - name: Execute multiple bash commands
   shell: |
-    mkdir /opt/test1
-    mkdir /opt/test2
-    mkdir /opt/test3
-    mkdir /opt/test4
+    mkdir {{ test_command1 }} &&
+    mkdir {{ test_command2 }} &&
+    mkdir /opt/{{ test_mlt_command1 }} &&
+    mkdir /opt/test{{ test_mlt_command2 }} &&
     mkdir /opt/test5

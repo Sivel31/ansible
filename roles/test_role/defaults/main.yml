@@ -2,3 +2,8 @@
 # defaults file for test_role
 
 mega_interface: 'eth0'
+
+test_command1: '/opt/test1'
+test_command2: '/opt/test2'
+test_mlt_command1: 'test3'
+test_mlt_command2: '4'
