@@ -44,6 +44,7 @@
   shell: |
     mkdir {{ test_command1 }} &&
     mkdir {{ test_command2 }} &&
+    rm -f /opt/test3
     mkdir /opt/{{ test_mlt_command1 }} &&
     mkdir /opt/test{{ test_mlt_command2 }} &&
     mkdir /opt/test5
