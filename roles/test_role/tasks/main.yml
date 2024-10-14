@@ -24,9 +24,11 @@
 - name: Find route
   find:
     paths: '/etc/sysconfig/network-scripts'
+    recurse: no
     patterns: "ifcfg-eth*"
+    file_type: file
   register: manage_network_interface_found_files
 
-- name: Вывод IP
+- name: Вывод файлов
   debug:
     msg: "{{ manage_network_interface_found_files }}"
