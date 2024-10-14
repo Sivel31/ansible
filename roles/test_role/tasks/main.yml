@@ -5,9 +5,9 @@
   debug:
     msg: "Используемый интерфейс: {{ mega_interface }}"
 
-- name: Показать доступные интерфейсы
-  debug:
-    var: ansible_facts['interfaces']
+#- name: Показать доступные интерфейсы
+#  debug:
+#    var: ansible_facts['interfaces']
 
 - name: Получить MAC-адрес интерфейса
   debug:
