@@ -33,4 +33,4 @@
 
 - name: Вывод файлов
   debug:
-    msg: "{{ manage_network_interface_found_files.file[0].path }}"
+    msg: "{{ manage_network_interface_found_files.files[0].path }}"
