@@ -27,6 +27,11 @@
     patterns: "ifcfg-eth*"
   register: manage_network_interface_found_files
 
+- name: Вывод файлов, если файлы найдены
+  debug:
+    msg: "{{ manage_network_interface_found_files.files }}"
+  when: manage_network_interface_found_files.files | length > 0
+
 - name: Вывод файлов
   debug:
     msg: "{{ manage_network_interface_found_files }}"
