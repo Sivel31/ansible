@@ -2,3 +2,7 @@
 # tasks file for test_role
 - name: test task
   debug: msg="{{ hostvars[inventory_hostname].ansible_default_ipv4.macaddress }}"
+
+- name: Вывести все факты
+  debug:
+    var: ansible_facts
